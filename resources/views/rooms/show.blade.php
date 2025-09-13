@@ -16,48 +16,156 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <style>
-        .chat-container {
-            max-height: 85dvh;
-            min-height: 85dvh;
-            overflow-y: auto;
-            background-image: url('https://img.freepik.com/vecteurs-premium/motif-geometrique-sans-couture-symboles-ligne-combinaisons-cartes-jouer-fond-casino_104589-1197.jpg');
-            background-size:20%;
-            background-position: center;
-        }
-        @media (max-width: 768px) {
-            .chat-container {
-                background-size: 80%;
-            }
-        }
-        .message {
-            border-radius: 18px;
-            padding: 10px 16px;
-            width: fit-content;
-            margin-bottom: 12px;
-            max-width: 80%;
-            word-wrap: break-word;
-        }
-        .own-message {
-            background-color: #0d6efd;
-            color: white;
-            margin-left: auto;
-        }
-        .other-message {
-            background-color: #e9ecef;
-            color: #212529;
-        }
-        .message-time {
-            font-size: 0.75rem;
-            opacity: 0.8;
-            margin-top: 4px;
-            text-align: right;
-        }
-        .typing-indicator {
-            display: none;
-            font-style: italic;
-            color: #6c757d;
-            padding: 8px 0;
-        }
+    body {
+    background: #121212;
+    min-height: 100vh;
+    padding: 20px;
+    font-family: 'Nunito', sans-serif;
+    color: #e0e0e0;
+}
+
+.main-card {
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #1e1e1e;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+
+.card-header {
+    background: #1f1f1f;
+    color: #f0f0f0;
+    padding: 15px 20px;
+    border-bottom: 1px solid #2c2c2c;
+}
+
+.navbar-brand,
+.nav-link {
+    color: #bbb !important;
+    transition: color 0.3s;
+}
+
+.navbar-brand:hover,
+.nav-link:hover {
+    color: #fff !important;
+}
+
+.form-control {
+    border-radius: 8px;
+    padding: 10px 15px;
+    background: #2a2a2a;
+    border: 1px solid #333;
+    color: #eee;
+}
+
+.form-control:focus {
+    outline: none;
+    background: #2a2a2a;
+    color: #eee;
+    border-color: #4facfe;
+    box-shadow: 0 0 0 2px rgba(79,172,254,0.2);
+}
+
+.btn {
+    border-radius: 5px;
+    padding: 8px 20px;
+    border: none;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    color: #fff;
+}
+
+.btn-success {
+    background: linear-gradient(to right, #42e695, #3bb2b8);
+    color: #fff;
+}
+
+.btn-info {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: #fff;
+}
+
+.btn-danger {
+    background: #b23b3b;
+    color: #fff;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.card {
+    border-radius: 10px;
+    background: #1f1f1f;
+    color: #ddd;
+    border: 1px solid #2c2c2c;
+}
+
+.card-title {
+    color: #f5f5f5;
+    font-weight: 600;
+}
+
+.card-text {
+    color: #aaa;
+}
+
+.text-box{
+    background: #2a2a2a;
+    color: #eee;
+}
+
+.alert {
+    border-radius: 8px;
+    background: #2a2a2a;
+    border: 1px solid #444;
+    color: #ddd;
+}
+
+.chat-container {
+    max-height: 80vh;
+    overflow-y: auto;
+    background: #181818;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.message {
+    border-radius: 14px;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.own-message {
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    color: #fff;
+    margin-left: auto;
+}
+
+.other-message {
+    background: #2a2a2a;
+    color: #ddd;
+}
+
+.message-time {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    margin-top: 3px;
+    text-align: right;
+    color: #aaa;
+}
+
+.typing-indicator {
+    font-style: italic;
+    color: #888;
+    padding: 8px 0;
+}
     </style>
   </head>
   <body>
