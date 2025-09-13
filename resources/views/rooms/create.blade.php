@@ -186,7 +186,7 @@
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required><br>
-                                <small class="form-text text-muted">
+                                <small">
                                     This password will be required for others to join your room.
                                 </small>
 

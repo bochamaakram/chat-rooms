@@ -1,5 +1,4 @@
-<html>
-  <head><html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -73,26 +72,6 @@
     font-weight: 500;
 }
 
-.btn-primary {
-    background: linear-gradient(to right, #4facfe, #00f2fe);
-    color: #fff;
-}
-
-.btn-success {
-    background: linear-gradient(to right, #42e695, #3bb2b8);
-    color: #fff;
-}
-
-.btn-info {
-    background: linear-gradient(to right, #6a11cb, #2575fc);
-    color: #fff;
-}
-
-.btn-danger {
-    background: #b23b3b;
-    color: #fff;
-}
-
 .btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
@@ -127,9 +106,9 @@
 }
 
 .chat-container {
-    max-height: 80vh;
+    max-height: 90dvh;
     overflow-y: auto;
-    background: #181818;
+    background: radial-gradient(circle, #9900ff71, #121212ff);
     padding: 15px;
     border-radius: 10px;
 }
@@ -139,11 +118,12 @@
     padding: 10px 14px;
     margin-bottom: 12px;
     max-width: 80%;
+    width: fit-content;
     word-wrap: break-word;
 }
 
 .own-message {
-    background: linear-gradient(to right, #4facfe, #00f2fe);
+    background: linear-gradient(to right, #6f4ffeff, #003bfeff);
     color: #fff;
     margin-left: auto;
 }
@@ -165,6 +145,7 @@
     font-style: italic;
     color: #888;
     padding: 8px 0;
+    display: none; /* Hidden by default */
 }
     </style>
   </head>
@@ -269,6 +250,46 @@
 
             // Focus on message input
             document.getElementById('message-input').focus();
+        });
+
+        // Typing indicator functionality
+        const typingIndicator = document.getElementById('typing-indicator');
+        const messageInput = document.getElementById('message-input');
+        let typingTimer;
+        const TYPING_TIMEOUT = 1000; // 1 second of inactivity
+
+        // Function to show typing indicator
+        function showTypingIndicator() {
+            typingIndicator.style.display = 'block';
+        }
+
+        // Function to hide typing indicator
+        function hideTypingIndicator() {
+            typingIndicator.style.display = 'none';
+        }
+
+        // Listen for typing events
+        messageInput.addEventListener('input', function() {
+            // Show indicator when user starts typing
+            showTypingIndicator();
+
+            // Clear existing timer
+            clearTimeout(typingTimer);
+
+            // Set a new timer to hide the indicator after inactivity
+            typingTimer = setTimeout(hideTypingIndicator, TYPING_TIMEOUT);
+        });
+
+        // Also hide indicator when input loses focus
+        messageInput.addEventListener('blur', function() {
+            hideTypingIndicator();
+            clearTimeout(typingTimer);
+        });
+
+        // Hide indicator when form is submitted
+        document.getElementById('message-form').addEventListener('submit', function() {
+            hideTypingIndicator();
+            clearTimeout(typingTimer);
         });
     </script>
   </body>

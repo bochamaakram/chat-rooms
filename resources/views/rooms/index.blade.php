@@ -109,18 +109,21 @@
     word-wrap: break-word;
 }
 
+.card-body {
+    background-color: rgba(0, 0, 0, 0.57);
+}
+
 .own-message {
     background: linear-gradient(to right, #4facfe, #00f2fe);
     color: #fff;
     margin-left: auto;
 }
 
-.li-it{
-    background: #6851beff;
-    color: #ddd;
+.list-group-item{
+    background: radial-gradient(circle, #9900ff86, #00000079);
+    color: #ddd ;
     border:none;
 }
-
 .other-message {
     background: #2a2a2a;
     color: #ddd;
@@ -188,12 +191,12 @@
                 @if ($rooms->count() > 0)
                     <div class="list-group gap-2">
                         @foreach ($rooms as $room)
-                            <div class="list-group-item li-it">
+                            <div class="list-group-item">
                                 <a href="{{ route('rooms.show', $room) }}" class="text-decoration-none text-dark">
                                     <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1">{{ $room->name }} : <small class="mb-1">{{ $room->description }}</small></h5>
+                                        <h5 style="color: #fff">{{ $room->name }} : <small class="mb-1">{{ $room->description }}</small></h5>
                                         <div>
-                                            <small>room number: {{ $room->id }}</small>
+                                            <small style="color: #fff">room number: {{ $room->id }}</small>
                                             @if (Auth::id() === $room->user_id)
                                                 <span class="badge bg-primary ms-2">Owner</span>
                                             @else
@@ -203,7 +206,7 @@
                                     </div>
                                     <div class="d-flex justify-content-between align-items-center">
                                         @if ($room->latestMessage)
-                                            <small>Last message: {{ Str::limit($room->latestMessage->content, 50) }}</small>
+                                            <small style="color: #fff">Last message: {{ Str::limit($room->latestMessage->content, 50) }}</small>
                                         @else
                                             <small>No messages yet</small>
                                         @endif
