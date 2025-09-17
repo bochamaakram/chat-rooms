@@ -15,100 +15,10 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <style>
-    body {
-    background: #121212;
-    min-height: 100vh;
-    padding: 20px;
-    font-family: 'Nunito', sans-serif;
-    color: #e0e0e0;
-}
-
-.main-card {
-    border-radius: 12px;
-    overflow: hidden;
-    background-color: #1e1e1e;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
-}
-
-.card-header {
-    background: #1f1f1f;
-    color: #f0f0f0;
-    padding: 15px 20px;
-    border-bottom: 1px solid #2c2c2c;
-}
-
-.navbar-brand,
-.nav-link {
-    color: #bbb !important;
-    transition: color 0.3s;
-}
-
-.navbar-brand:hover,
-.nav-link:hover {
-    color: #fff !important;
-}
-
-.form-control {
-    border-radius: 8px;
-    padding: 10px 15px;
-    background: #2a2a2a;
-    border: 1px solid #333;
-    color: #eee;
-}
-
-.form-control:focus {
-    outline: none;
-    background: #2a2a2a;
-    color: #eee;
-    border-color: #4facfe;
-    box-shadow: 0 0 0 2px rgba(79,172,254,0.2);
-}
-
-.btn {
-    border-radius: 5px;
-    padding: 8px 20px;
-    border: none;
-    transition: all 0.3s;
-    font-weight: 500;
-}
-
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}
-
-.card {
-    border-radius: 10px;
-    background: #1f1f1f;
-    color: #ddd;
-    border: 1px solid #2c2c2c;
-}
-
-.card-title {
-    color: #f5f5f5;
-    font-weight: 600;
-}
-
-.card-text {
-    color: #aaa;
-}
-
-.text-box{
-    background: #2a2a2a;
-    color: #eee;
-}
-
-.alert {
-    border-radius: 8px;
-    background: #2a2a2a;
-    border: 1px solid #444;
-    color: #ddd;
-}
-
 .chat-container {
-    max-height: 90dvh;
+    max-height: 85dvh;
+    min-height: 80dvh;
     overflow-y: auto;
-    background: radial-gradient(circle, #9900ff71, #121212ff);
     padding: 15px;
     border-radius: 10px;
 }
@@ -129,7 +39,7 @@
 }
 
 .other-message {
-    background: #2a2a2a;
+    background: #616161ff;
     color: #ddd;
 }
 
@@ -176,7 +86,7 @@
 
             <div class="card-footer">
                 <div class="typing-indicator" id="typing-indicator">
-                    Someone is typing...
+                    typing...
                 </div>
 
                 <form id="message-form">

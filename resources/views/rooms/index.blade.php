@@ -9,140 +9,6 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <style>
-    body {
-    background: #121212;
-    min-height: 100vh;
-    padding: 20px;
-    font-family: 'Nunito', sans-serif;
-    color: #e0e0e0;
-}
-
-.main-card {
-    border-radius: 12px;
-    overflow: hidden;
-    background-color: #1e1e1e;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
-}
-
-.card-header {
-    background: #1f1f1f;
-    color: #f0f0f0;
-    padding: 15px 20px;
-    border-bottom: 1px solid #2c2c2c;
-}
-
-.navbar-brand,
-.nav-link {
-    color: #bbb !important;
-    transition: color 0.3s;
-}
-
-.navbar-brand:hover,
-.nav-link:hover {
-    color: #fff !important;
-}
-
-.form-control {
-    border-radius: 8px;
-    padding: 10px 15px;
-    background: #2a2a2a;
-    border: 1px solid #333;
-    color: #eee;
-}
-
-.form-control:focus {
-    outline: none;
-    background: #2a2a2a;
-    color: #eee;
-    border-color: #4facfe;
-    box-shadow: 0 0 0 2px rgba(79,172,254,0.2);
-}
-
-.btn {
-    border-radius: 5px;
-    padding: 8px 20px;
-    border: none;
-    transition: all 0.3s;
-    font-weight: 500;
-}
-
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}
-
-.card {
-    border-radius: 10px;
-    background: #1f1f1f;
-    color: #ddd;
-    border: 1px solid #2c2c2c;
-}
-
-.card-title {
-    color: #f5f5f5;
-    font-weight: 600;
-}
-
-.card-text {
-    color: #aaa;
-}
-
-.text-box{
-    background: #2a2a2a;
-    color: #eee;
-}
-
-.chat-container {
-    max-height: 80vh;
-    overflow-y: auto;
-    background: #181818;
-    padding: 15px;
-    border-radius: 10px;
-}
-
-.message {
-    border-radius: 14px;
-    padding: 10px 14px;
-    margin-bottom: 12px;
-    max-width: 80%;
-    word-wrap: break-word;
-}
-
-.card-body {
-    background-color: rgba(0, 0, 0, 0.57);
-}
-
-.own-message {
-    background: linear-gradient(to right, #4facfe, #00f2fe);
-    color: #fff;
-    margin-left: auto;
-}
-
-.list-group-item{
-    background: radial-gradient(circle, #9900ff86, #00000079);
-    color: #ddd ;
-    border:none;
-}
-.other-message {
-    background: #2a2a2a;
-    color: #ddd;
-}
-
-.message-time {
-    font-size: 0.75rem;
-    opacity: 0.7;
-    margin-top: 3px;
-    text-align: right;
-    color: #aaa;
-}
-
-.typing-indicator {
-    font-style: italic;
-    color: #888;
-    padding: 8px 0;
-}
-    </style>
 </head>
 <body >
     <div class="container-fluid mt-4">
@@ -191,12 +57,12 @@
                 @if ($rooms->count() > 0)
                     <div class="list-group gap-2">
                         @foreach ($rooms as $room)
-                            <div class="list-group-item">
+                            <div class=" alert alert-primary">
                                 <a href="{{ route('rooms.show', $room) }}" class="text-decoration-none text-dark">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h5 style="color: #fff">{{ $room->name }} : <small class="mb-1">{{ $room->description }}</small></h5>
+                                    <div class="d-flex w-100 justify-content-between ">
+                                        <h5>{{ $room->name }} : <small class="mb-1">{{ $room->description }}</small></h5>
                                         <div>
-                                            <small style="color: #fff">room number: {{ $room->id }}</small>
+                                            <small>room number: {{ $room->id }}</small>
                                             @if (Auth::id() === $room->user_id)
                                                 <span class="badge bg-primary ms-2">Owner</span>
                                             @else
@@ -206,7 +72,7 @@
                                     </div>
                                     <div class="d-flex justify-content-between align-items-center">
                                         @if ($room->latestMessage)
-                                            <small style="color: #fff">Last message: {{ Str::limit($room->latestMessage->content, 50) }}</small>
+                                            <small>Last message: {{ Str::limit($room->latestMessage->content, 50) }}</small>
                                         @else
                                             <small>No messages yet</small>
                                         @endif
@@ -216,8 +82,8 @@
                         @endforeach
                     </div>
                     <div class="d-flex justify-content-center mt-3  gap-3">
-                        <a href="{{ route('rooms.join.form') }}" class="btn btn-secondary btn-sm">Join Room</a>
-                        <a href="{{ route('rooms.create') }}" class="btn btn-secondary btn-sm">Create Room</a>
+                        <a href="{{ route('rooms.join.form') }}" class="btn btn-primary btn-sm">Join Room</a>
+                        <a href="{{ route('rooms.create') }}" class="btn btn-primary btn-sm">Create Room</a>
                     </div>
                 @else
                     <p>You haven't joined any rooms yet. <a href="{{ route('rooms.create') }}">Create one!</a></p>
